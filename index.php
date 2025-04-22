@@ -30,7 +30,6 @@
         .hex {
             width: 60px;
             height: 52px;
-            background: #76b676;
             position: absolute;
             display: flex;
             flex-direction: column;
@@ -50,12 +49,16 @@
             );
         }
 
-        .hex span {
-            line-height: 1;
-        }
-
         .earth {
             background: #76b676;
+        }
+
+        .mountain {
+            background: #888;
+        }
+
+        .hex span {
+            line-height: 1;
         }
 
         .hex.selected {
@@ -112,20 +115,46 @@
         function generarNombreAleatorio() {
             $adjetivos = ["Verde", "Esmeralda", "Turquesa", "Ocre", "Antigua", "Mística", "Ventosa", "Primaveral", "Roja", "Escarlata", "Dorada", 
                 "Zafiro", "Azul", "Fértil", "Sagrada", "Misteriosa", "Rubí", "Soleada", "Nublada", "Plateada",
-                "Tórrida", "Cálida", "Fría", "Brumosa", "Serena", "Tempestuosa",];
+                "Tórrida", "Cálida", "Fría", "Brumosa", "Serena", "Tempestuosa"];
             $sustantivos = ["Colina", "Llanura", "Selva", "Cuenca", "Villa", "Aldea", "Pradera", "Laguna", "Cascada"];
             return $sustantivos[array_rand($sustantivos)] . ' ' . $adjetivos[array_rand($adjetivos)];
         }
 
         $archivoNombres = 'hex_names.json';
         $nombresHex = file_exists($archivoNombres) ? json_decode(file_get_contents($archivoNombres), true) : [];
+        $terrenos = [];
+
+        function decidirTerreno($q, $r, $terrenos) {
+            $vecinos = [
+                [$q, $r - 1], [$q, $r + 1],
+                [$q - 1, $r + ($q % 2 ? 0 : -1)],
+                [$q - 1, $r + ($q % 2 ? 1 : 0)],
+                [$q + 1, $r + ($q % 2 ? 0 : -1)],
+                [$q + 1, $r + ($q % 2 ? 1 : 0)],
+            ];
+
+            $montanaCercana = 0;
+            foreach ($vecinos as [$nq, $nr]) {
+                $nid = $nq * 100 + $nr;
+                if (isset($terrenos[$nid]) && $terrenos[$nid] === 'montaña') {
+                    $montanaCercana++;
+                }
+            }
+
+            $probabilidad = 0.07 + ($montanaCercana * 0.2);
+            return (mt_rand() / mt_getrandmax()) < $probabilidad ? 'montaña' : 'earth';
+        }
 
         for ($q = 0; $q < $cols; $q++) {
             for ($r = 0; $r < $rows; $r++) {
                 $id = $q * 100 + $r;
+
                 if (!isset($nombresHex[$id])) {
                     $nombresHex[$id] = generarNombreAleatorio();
                 }
+
+                $tipo = decidirTerreno($q, $r, $terrenos);
+                $terrenos[$id] = $tipo;
             }
         }
 
@@ -137,10 +166,12 @@
                 $top = $r * $hexHeight + ($q % 2 ? $hexHeight / 2 : 0);
                 $id = $q * 100 + $r;
                 $nombre = htmlspecialchars($nombresHex[$id]);
+                $tipo = $terrenos[$id];
 
-                echo "<div class='hex earth' data-q='$q' data-r='$r' data-id='{$id}' data-nombre='{$nombre}' title='{$nombre}' style='left: {$left}px; top: {$top}px;'>
+                $clase = $tipo === 'montaña' ? 'mountain' : 'earth';
+
+                echo "<div class='hex $clase' data-q='$q' data-r='$r' data-id='{$id}' data-nombre='{$nombre}' data-tipo='{$tipo}' title='{$nombre}' style='left: {$left}px; top: {$top}px;'>
                         <span>{$q},{$r}</span>
-                        
                       </div>";
             }
         }
@@ -152,6 +183,7 @@
         <p><strong>Coordenadas:</strong> <span id="info-coords"></span></p>
         <p><strong>ID:</strong> <span id="info-id"></span></p>
         <p><strong>Nombre:</strong> <span id="info-nombre"></span></p>
+        <p><strong>Terreno:</strong> <span id="info-tipo"></span></p>
     </div>
 
     <script>
@@ -160,6 +192,7 @@
         const infoCoords = document.getElementById('info-coords');
         const infoId = document.getElementById('info-id');
         const infoNombre = document.getElementById('info-nombre');
+        const infoTipo = document.getElementById('info-tipo');
         const closeBtn = document.getElementById('close-panel-btn');
 
         let selectedQ = null;
@@ -174,6 +207,7 @@
             const r = hex.dataset.r;
             const id = hex.dataset.id;
             const nombre = hex.dataset.nombre;
+            const tipo = hex.dataset.tipo;
 
             if (selectedHex && selectedHex.classList.contains('selected')) {
                 selectedHex.classList.remove('selected');
@@ -195,6 +229,7 @@
             infoCoords.textContent = `(${q}, ${r})`;
             infoId.textContent = id;
             infoNombre.textContent = nombre;
+            infoTipo.textContent = tipo;
 
             panel.style.display = 'block';
         });
