@@ -119,3 +119,65 @@ container.addEventListener('dblclick', () => {
 });
 
 animate();
+
+function syncSliderAndInput(inputId, sliderId) {
+    const input = document.getElementById(inputId);
+    const slider = document.getElementById(sliderId);
+
+    input.addEventListener('input', () => {
+        const val = Math.max(0, Math.min(1, parseFloat(input.value) || 0));
+        slider.value = val;
+    });
+
+    slider.addEventListener('input', () => {
+        input.value = slider.value;
+    });
+}
+
+syncSliderAndInput('pm-input', 'pm-slider');
+syncSliderAndInput('pl-input', 'pl-slider');
+
+const editBtn = document.getElementById('edit-nombre-btn');
+const editContainer = document.getElementById('edit-nombre-container');
+const editInput = document.getElementById('edit-nombre-input');
+const saveBtn = document.getElementById('save-nombre-btn');
+
+editBtn.addEventListener('click', () => {
+  editInput.value = infoNombre.textContent;
+  editContainer.style.display = 'block';
+});
+
+saveBtn.addEventListener('click', () => {
+  const newName = editInput.value.trim();
+  if (newName) {
+    infoNombre.textContent = newName;
+    selectedHex.dataset.nombre = newName;
+    selectedHex.querySelector('span').textContent = newName;
+
+    // Aquí podrías agregar una llamada a fetch o AJAX para guardar en el servidor
+    // fetch('guardar_nombre.php', { method: 'POST', body: JSON.stringify({ id: infoId.textContent, nombre: newName }) })
+
+    editContainer.style.display = 'none';
+    fetch('guardar_nombre.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: infoId.textContent,
+          nombre: newName
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          console.log('Nombre guardado:', data.nombre);
+        } else {
+          alert('Error al guardar');
+        }
+      })
+      .catch(err => {
+        console.error('Error en la petición:', err);
+      });
+  }
+});

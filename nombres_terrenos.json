@@ -2,7 +2,8 @@
     "earth": {
       "adjetivos": ["Verde", "Esmeralda", "Turquesa", "Ocre", "Antigua", "Mística", "Ventosa", "Primaveral", "Roja", 
                     "Escarlata", "Dorada", "Zafiro", "Azul", "Fértil", "Sagrada", "Misteriosa", "Rubí", "Soleada", 
-                    "Nublada", "Plateada", "Tórrida", "Cálida", "Fría", "Brumosa", "Serena", "Tempestuosa"],
+                    "Nublada", "Plateada", "Tórrida", "Cálida", "Fría", "Brumosa", "Serena", "Tempestuosa","Nublada",
+                    "Soleada", "Lluviosa", "Fértil", "Frondosa"],
       "sustantivos": ["Colina", "Llanura", "Selva", "Cuenca", "Villa", "Aldea", "Pradera"]
     },
     "montaña": {

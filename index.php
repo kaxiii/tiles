@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapa Hexagonal</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -15,26 +15,7 @@
         <span style="font-weight: bold;">Mapa Hexagonal</span>
     </div>
 
-    <div id="settings-panel" style="display:none; position: fixed; top: 50px; left: 50%; transform: translateX(-50%); background: white; padding: 20px; border: 1px solid #ccc; z-index: 2001; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-        <form id="regenerar-form">
-            <label>Probabilidad Montaña (ej. 0.15):<br>
-                <input type="number" name="pm" min="0" max="1" step="0.01" value="<?= $_GET['pm'] ?? 0.15 ?>" required>
-            </label><br><br>
-            <label>Probabilidad Lago (ej. 0.15):<br>
-                <input type="number" name="pl" min="0" max="1" step="0.01" value="<?= $_GET['pl'] ?? 0.15 ?>" required>
-            </label><br><br>
-            <button type="submit">Regenerar Mapa</button>
-            <button type="button" onclick="document.getElementById('settings-panel').style.display='none'">Cancelar</button>
-
-            <label>Columnas (cols):<br>
-                <input type="number" name="cols" min="3" max="100" value="<?= $_GET['cols'] ?? 10 ?>" required>
-            </label><br><br>
-            <label>Filas (rows):<br>
-                <input type="number" name="rows" min="3" max="50" value="<?= $_GET['rows'] ?? 7 ?>" required>
-            </label><br><br>
-        
-        </form>
-    </div>
+    <?php include 'components/map_generator_panel.php'; ?>
 
     <script>
         document.getElementById('regenerar-form').addEventListener('submit', e => {
@@ -157,14 +138,8 @@
         ?>
     </div>
 
-    <div id="hex-info-panel">
-        <button id="close-panel-btn">×</button>
-        <p><strong>Coordenadas:</strong> <span id="info-coords"></span></p>
-        <p><strong>ID:</strong> <span id="info-id"></span></p>
-        <p><strong>Nombre:</strong> <span id="info-nombre"></span></p>
-        <p><strong>Terreno:</strong> <span id="info-tipo"></span></p>
-    </div>
+    <?php include 'components/info_panel.php'; ?>
 
-    <script src="main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
