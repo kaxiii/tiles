@@ -1,0 +1,19 @@
+{
+    "earth": {
+      "adjetivos": ["Verde", "Esmeralda", "Turquesa", "Ocre", "Antigua", "Mística", "Ventosa", "Primaveral", "Roja", 
+                    "Escarlata", "Dorada", "Zafiro", "Azul", "Fértil", "Sagrada", "Misteriosa", "Rubí", "Soleada", 
+                    "Nublada", "Plateada", "Tórrida", "Cálida", "Fría", "Brumosa", "Serena", "Tempestuosa"],
+      "sustantivos": ["Colina", "Llanura", "Selva", "Cuenca", "Villa", "Aldea", "Pradera"]
+    },
+    "montaña": {
+      "adjetivos": ["Rocoso", "Nevado", "Eterno", "Escarpado", "Sagrado", "Místico", "Áspero", "Sombrío", "Inhóspito", 
+                    "Elevado", "Imponente", "Sustentoso", "Brumoso", "Tempestuoso", "Sereno", "Profundo", "Níveo",
+                    "Soleado", "Helado", "Cálido", "Frío", "Gélido", "Ivernal", "Glacial", "Nublado", "Polar", "Ártico"],
+      "sustantivos": ["Peñón", "Monte", "Macizo", "Pico", "Coloso", "Altiplano", "Risco", "Abismo"]
+    },
+    "lago": {
+      "adjetivos": ["Profunda", "Serena", "Oscura", "Misteriosa", "Cristalina", "Azul", "Turquesa", "Sagrada", 
+                    "Reflejada", "Silenciosa", "Esmeralda", "Verde", "Helada"],
+      "sustantivos": ["Balsa", "Laguna", "Charca", "Agua", "Cascada"]
+    }
+  }
