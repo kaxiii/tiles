@@ -18,6 +18,7 @@ const infoNombre = document.getElementById('info-nombre');
 const infoTipo = document.getElementById('info-tipo');
 const closeBtn = document.getElementById('close-panel-btn');
 const infoFertilidad = document.getElementById('info-fertilidad');
+const infoFish = document.getElementById('info-fish');
 
 let selectedHex = null;
 
@@ -31,6 +32,8 @@ container.addEventListener('click', e => {
     const id = hex.dataset.id;
     const nombre = hex.dataset.nombre;
     const tipo = hex.dataset.tipo;
+    const fish = hex.dataset.fish;
+    const fishContainer = document.getElementById('fish-container');
     const fertilidad = hex.dataset.fertilidad;
 
     if (selectedHex && selectedHex.classList.contains('selected')) {
@@ -51,6 +54,12 @@ container.addEventListener('click', e => {
     infoId.textContent = id;
     infoNombre.textContent = nombre;
     infoTipo.textContent = tipo;
+    if (tipo === 'lago') {
+      fishContainer.style.display = 'block';
+      infoFish.textContent = fish;
+    } else {
+        fishContainer.style.display = 'none';
+    }
     infoFertilidad.textContent = fertilidad;
 
     panel.style.display = 'block';
@@ -203,13 +212,23 @@ document.querySelectorAll('.hex-toggle').forEach(btn => {
 
             if (currentView === 'coords') {
                 span.textContent = `${hex.dataset.q},${hex.dataset.r}`;
-            } else if (currentView === 'fertilidad') {
+            } 
+              else if (currentView === 'fertilidad') {
                 if (hex.dataset.tipo === 'earth' || hex.classList.contains('earth')) {
                   span.textContent = `🌱 ${hex.dataset.fertilidad}`;
-              } else {
+                } else {
                   span.textContent = ''; // vaciar si no es tierra
+                }
               }
-            }
+
+              else if (currentView === 'fish') {
+                if (hex.dataset.tipo === 'lago' || hex.classList.contains('lago')) {
+                    span.textContent = `🐟 ${hex.dataset.fish}`;
+                  } else {
+                      span.textContent = '';
+                  }
+              }
+              
         });
     });
 });

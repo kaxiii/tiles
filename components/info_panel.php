@@ -13,5 +13,6 @@
     <p><strong>ID:</strong> <span id="info-id"></span></p>
     <p><strong>Terreno:</strong> <span id="info-tipo"></span></p>
     <p><strong>Fertilidad:</strong> <span id="info-fertilidad">0</span></p>
+    <p id="fish-container" style="display: none;"><strong>Pesca:</strong> <span id="info-fish">0</span></p>
     
 </div>

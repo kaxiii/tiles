@@ -160,7 +160,30 @@
                 $id = $q * 100 + $r;
                 $nombre = htmlspecialchars($nombresHex[$id]);
                 $tipo = $terrenos[$id];
+
+                // Asignar fertilidad si es tierra
                 $fertilidad = ($tipo === 'earth') ? rand(0,30) : '';
+
+                // Calcular fish si es lago
+                $fish = '';
+                if ($tipo === 'lago') {
+                    $vecinos = [
+                        [$q, $r - 1], [$q, $r + 1],
+                        [$q - 1, $r],
+                        [$q + 1, $r],
+                        [$q - 1, $r + ($q % 2 === 0 ? -1 : 0)],
+                        [$q + 1, $r + ($q % 2 === 0 ? -1 : 0)]
+                    ];
+
+                    $aguaAlrededor = 0;
+                    foreach ($vecinos as [$vq, $vr]) {
+                        $vid = $vq * 100 + $vr;
+                        if (isset($terrenos[$vid]) && $terrenos[$vid] === 'lago') {
+                            $aguaAlrededor++;
+                        }
+                    }
+                    $fish = rand(1, 3) + $aguaAlrededor * rand(1, 2);
+                }
                 
 
                 $color = match ($tipo) {
@@ -176,6 +199,7 @@
                             data-nombre='{$nombre}' 
                             data-tipo='{$tipo}' 
                             data-fertilidad='{$fertilidad}'
+                            data-fish='{$fish}' 
                             title='{$nombre}' 
                             style='left: {$left}px; top: {$top}px; background: {$color};'>
                         <span>{$q},{$r}</span>
