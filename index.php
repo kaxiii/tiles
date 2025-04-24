@@ -17,6 +17,8 @@
 
     <?php include 'components/map_generator_panel.php'; ?>
 
+    <?php include 'components/layers.php'; ?>
+
     <script>
         document.getElementById('regenerar-form').addEventListener('submit', e => {
             e.preventDefault();
@@ -89,6 +91,7 @@
             }
         
             $tipo = $nombres[$tipo] ?? $nombres['earth'];
+
         
             $adj = $tipo['adjetivos'];
             $sus = $tipo['sustantivos'];
@@ -157,6 +160,8 @@
                 $id = $q * 100 + $r;
                 $nombre = htmlspecialchars($nombresHex[$id]);
                 $tipo = $terrenos[$id];
+                $fertilidad = ($tipo === 'earth') ? rand(0,30) : '';
+                
 
                 $color = match ($tipo) {
                     'montaña' => '#888',
@@ -164,9 +169,17 @@
                     default    => '#76b676'
                 };
 
-                echo "<div class='hex $tipo' data-q='$q' data-r='$r' data-id='{$id}' data-nombre='{$nombre}' data-tipo='{$tipo}' title='{$nombre}' style='left: {$left}px; top: {$top}px; background: {$color};'>
+                echo "<div class='hex $tipo' 
+                            data-q='$q' 
+                            data-r='$r' 
+                            data-id='{$id}' 
+                            data-nombre='{$nombre}' 
+                            data-tipo='{$tipo}' 
+                            data-fertilidad='{$fertilidad}'
+                            title='{$nombre}' 
+                            style='left: {$left}px; top: {$top}px; background: {$color};'>
                         <span>{$q},{$r}</span>
-                      </div>";
+                    </div>";
             }
         }
         ?>

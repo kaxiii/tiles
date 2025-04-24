@@ -179,3 +179,45 @@ body {
 #info-tipo{
     text-transform: uppercase;
 }
+
+.hex-toggle-panel {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.hex-toggle {
+    width: 60px;
+    height: 52px;
+    background: #3498db;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    clip-path: polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background 0.2s;
+}
+
+.hex-toggle:hover {
+    background: #2980b9;
+}
+
+.hex-toggle.active {
+    background: #2ecc71;
+}

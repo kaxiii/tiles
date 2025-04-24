@@ -11,7 +11,7 @@
     </div>
     <p><strong>Coordenadas:</strong> <span id="info-coords"></span></p>
     <p><strong>ID:</strong> <span id="info-id"></span></p>
-    <!-- <p><strong>Nombre:</strong> <span id="info-nombre"></span></p> -->
     <p><strong>Terreno:</strong> <span id="info-tipo"></span></p>
+    <p><strong>Fertilidad:</strong> <span id="info-fertilidad">0</span></p>
     
 </div>

@@ -9,6 +9,7 @@ document.getElementById('regenerar-form').addEventListener('submit', e => {
     window.location.href = `?pm=${pm}&pl=${pl}&cols=${cols}&rows=${rows}`;
 });
 
+// Obtener los parámetros de la URL
 const container = document.getElementById('map');
 const panel = document.getElementById('hex-info-panel');
 const infoCoords = document.getElementById('info-coords');
@@ -16,6 +17,7 @@ const infoId = document.getElementById('info-id');
 const infoNombre = document.getElementById('info-nombre');
 const infoTipo = document.getElementById('info-tipo');
 const closeBtn = document.getElementById('close-panel-btn');
+const infoFertilidad = document.getElementById('info-fertilidad');
 
 let selectedHex = null;
 
@@ -23,11 +25,13 @@ container.addEventListener('click', e => {
     const hex = e.target.closest('.hex');
     if (!hex) return;
 
+    // Obtener los datos del hexágono
     const q = hex.dataset.q;
     const r = hex.dataset.r;
     const id = hex.dataset.id;
     const nombre = hex.dataset.nombre;
     const tipo = hex.dataset.tipo;
+    const fertilidad = hex.dataset.fertilidad;
 
     if (selectedHex && selectedHex.classList.contains('selected')) {
         selectedHex.classList.remove('selected');
@@ -42,10 +46,12 @@ container.addEventListener('click', e => {
     selectedHex = hex;
     selectedHex.classList.add('selected');
 
+    // Actualizar el panel de información
     infoCoords.textContent = `(${q}, ${r})`;
     infoId.textContent = id;
     infoNombre.textContent = nombre;
     infoTipo.textContent = tipo;
+    infoFertilidad.textContent = fertilidad;
 
     panel.style.display = 'block';
 });
@@ -180,4 +186,30 @@ saveBtn.addEventListener('click', () => {
         console.error('Error en la petición:', err);
       });
   }
+});
+
+let currentView = 'coords';
+
+document.querySelectorAll('.hex-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+        currentView = btn.dataset.mode;
+
+        document.querySelectorAll('.hex-toggle').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        document.querySelectorAll('.hex').forEach(hex => {
+            const span = hex.querySelector('span');
+            if (!span) return;
+
+            if (currentView === 'coords') {
+                span.textContent = `${hex.dataset.q},${hex.dataset.r}`;
+            } else if (currentView === 'fertilidad') {
+                if (hex.dataset.tipo === 'earth' || hex.classList.contains('earth')) {
+                  span.textContent = `🌱 ${hex.dataset.fertilidad}`;
+              } else {
+                  span.textContent = ''; // vaciar si no es tierra
+              }
+            }
+        });
+    });
 });
