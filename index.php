@@ -118,6 +118,40 @@
         // Pintar el mapa
         for ($q = 0; $q < $cols; $q++) {
             for ($r = 0; $r < $rows; $r++) {
+
+                // $esEsquina = (
+                //     ($q === 0 && $r === 0) || // esquina superior izquierda
+                //     ($q === $cols - 1 && $r === 0) || // esquina superior derecha
+                //     ($q === 0 && $r === $rows - 1) || // esquina inferior izquierda
+                //     ($q === $cols - 1 && $r === $rows - 1) // esquina inferior derecha
+                // );
+        
+                // if ($esEsquina) continue; // omitir esta celda
+
+                $esEsquinaExtendida = (
+                    // esquina superior izquierda
+                    ($q === 0 && $r === 0) || 
+                    ($q === 1 && $r === 0) ||
+                    ($q === 0 && $r === 1) ||
+                
+                    // esquina superior derecha
+                    ($q === $cols - 1 && $r === 0) ||
+                    ($q === $cols - 2 && $r === 0) ||
+                    ($q === $cols - 1 && $r === 1) ||
+                
+                    // esquina inferior izquierda
+                    ($q === 0 && $r === $rows - 1) ||
+                    ($q === 0 && $r === $rows - 2) ||
+                    ($q === 1 && $r === $rows - 1) ||
+                
+                    // esquina inferior derecha
+                    ($q === $cols - 1 && $r === $rows - 1) ||
+                    ($q === $cols - 2 && $r === $rows - 1) ||
+                    ($q === $cols - 1 && $r === $rows - 2)
+                );
+                
+                if ($esEsquinaExtendida) continue;
+
                 $left = $q * $hexHSpacing;
                 $top = $r * $hexHeight + ($q % 2 ? $hexHeight / 2 : 0);
                 $id = $q * 100 + $r;
