@@ -91,6 +91,43 @@ function animate() {
     }
 }
 
+window.guardarEstadoMapa = function () {
+    const hexData = [];
+
+    document.querySelectorAll('.hex').forEach(hex => {
+        hexData.push({
+            id: hex.dataset.id,
+            q: hex.dataset.q,
+            r: hex.dataset.r,
+            nombre: hex.dataset.nombre,
+            tipo: hex.dataset.tipo,
+            fertilidad: hex.dataset.fertilidad,
+            fish: hex.dataset.fish
+        });
+    });
+
+    fetch('guardar_partida.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(hexData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert('Partida guardada en: ' + data.filename);
+        } else {
+            alert('Error al guardar: ' + data.error);
+        }
+    })
+    .catch(err => {
+        console.error('Error en la petición:', err);
+        alert('Error al guardar');
+    });
+};
+
+
 container.addEventListener('wheel', e => {
     e.preventDefault();
     const zoomIntensity = 0.1;

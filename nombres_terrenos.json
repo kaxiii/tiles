@@ -9,12 +9,12 @@
     "montaña": {
       "adjetivos": ["Rocoso", "Nevado", "Eterno", "Escarpado", "Sagrado", "Místico", "Áspero", "Sombrío", "Inhóspito", 
                     "Elevado", "Imponente", "Sustentoso", "Brumoso", "Tempestuoso", "Sereno", "Profundo", "Níveo",
-                    "Soleado", "Helado", "Cálido", "Frío", "Gélido", "Ivernal", "Glacial", "Nublado", "Polar", "Ártico"],
+                    "Soleado", "Helado", "Cálido", "Frío", "Gélido", "Ivernal", "Glacial", "Nublado", "Polar", "Ártico", "Frondoso"],
       "sustantivos": ["Peñón", "Monte", "Macizo", "Pico", "Coloso", "Altiplano", "Risco", "Abismo"]
     },
     "lago": {
-      "adjetivos": ["Profunda", "Serena", "Oscura", "Misteriosa", "Cristalina", "Azul", "Turquesa", "Sagrada", 
-                    "Reflejada", "Silenciosa", "Esmeralda", "Verde", "Helada"],
+      "adjetivos": ["Profunda", "Serena", "Oscura", "Misteriosa", "Encantada", "Cristalina,", "Azul", "Turquesa", "Sagrada", 
+                    "Reflejada", "Silenciosa", "Esmeralda", "Verde", "del Nenufar", "Helada"],
       "sustantivos": ["Balsa", "Laguna", "Charca", "Agua", "Cascada"]
     }
   }

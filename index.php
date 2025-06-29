@@ -11,6 +11,7 @@
 <body>
 
     <div style="position: fixed; top: 0; left: 0; right: 0; background: #333; color: white; padding: 10px; z-index: 2000;">
+        <button onclick="guardarEstadoMapa()" style="padding: 5px 10px; margin-right: 10px;">💾 Guardar partida</button>
         <button onclick="document.getElementById('settings-panel').style.display = 'block'" style="padding: 5px 10px; margin-right: 10px;">⚙ Configurar y regenerar</button>
         <span style="font-weight: bold;">Mapa Hexagonal</span>
     </div>
