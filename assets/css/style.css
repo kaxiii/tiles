@@ -221,3 +221,11 @@ body {
 .hex-toggle.active {
     background: #2ecc71;
 }
+
+#hexCanvas {
+    width: 100%;
+    height: calc(100vh - 50px);
+    display: block;
+    background: #f0f0f0;
+    margin-top: 50px; /* Para la barra superior */
+}

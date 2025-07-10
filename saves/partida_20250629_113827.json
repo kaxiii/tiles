@@ -1,0 +1,524 @@
+[
+    {
+        "id": "2",
+        "q": "0",
+        "r": "2",
+        "nombre": "Laguna Serena",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "4"
+    },
+    {
+        "id": "3",
+        "q": "0",
+        "r": "3",
+        "nombre": "Pradera Roja",
+        "tipo": "earth",
+        "fertilidad": "5",
+        "fish": ""
+    },
+    {
+        "id": "4",
+        "q": "0",
+        "r": "4",
+        "nombre": "Villa Tempestuosa",
+        "tipo": "earth",
+        "fertilidad": "1",
+        "fish": ""
+    },
+    {
+        "id": "101",
+        "q": "1",
+        "r": "1",
+        "nombre": "Agua Cristalina,",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "8"
+    },
+    {
+        "id": "102",
+        "q": "1",
+        "r": "2",
+        "nombre": "Balsa Reflejada",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "9"
+    },
+    {
+        "id": "103",
+        "q": "1",
+        "r": "3",
+        "nombre": "Charca Azul",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "8"
+    },
+    {
+        "id": "104",
+        "q": "1",
+        "r": "4",
+        "nombre": "Aldea M\u00edstica",
+        "tipo": "earth",
+        "fertilidad": "16",
+        "fish": ""
+    },
+    {
+        "id": "105",
+        "q": "1",
+        "r": "5",
+        "nombre": "Pradera M\u00edstica",
+        "tipo": "earth",
+        "fertilidad": "16",
+        "fish": ""
+    },
+    {
+        "id": "200",
+        "q": "2",
+        "r": "0",
+        "nombre": "Selva Tempestuosa",
+        "tipo": "earth",
+        "fertilidad": "19",
+        "fish": ""
+    },
+    {
+        "id": "201",
+        "q": "2",
+        "r": "1",
+        "nombre": "Balsa Sagrada",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "5"
+    },
+    {
+        "id": "202",
+        "q": "2",
+        "r": "2",
+        "nombre": "Laguna del Nenufar",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "11"
+    },
+    {
+        "id": "203",
+        "q": "2",
+        "r": "3",
+        "nombre": "Balsa Profunda",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "5"
+    },
+    {
+        "id": "204",
+        "q": "2",
+        "r": "4",
+        "nombre": "Cuenca Zafiro",
+        "tipo": "earth",
+        "fertilidad": "17",
+        "fish": ""
+    },
+    {
+        "id": "205",
+        "q": "2",
+        "r": "5",
+        "nombre": "Cuenca Primaveral",
+        "tipo": "earth",
+        "fertilidad": "17",
+        "fish": ""
+    },
+    {
+        "id": "206",
+        "q": "2",
+        "r": "6",
+        "nombre": "Llanura Dorada",
+        "tipo": "earth",
+        "fertilidad": "22",
+        "fish": ""
+    },
+    {
+        "id": "300",
+        "q": "3",
+        "r": "0",
+        "nombre": "Aldea Fr\u00eda",
+        "tipo": "earth",
+        "fertilidad": "9",
+        "fish": ""
+    },
+    {
+        "id": "301",
+        "q": "3",
+        "r": "1",
+        "nombre": "Colina Roja",
+        "tipo": "earth",
+        "fertilidad": "24",
+        "fish": ""
+    },
+    {
+        "id": "302",
+        "q": "3",
+        "r": "2",
+        "nombre": "Agua Cristalina,",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "3"
+    },
+    {
+        "id": "303",
+        "q": "3",
+        "r": "3",
+        "nombre": "Villa T\u00f3rrida",
+        "tipo": "earth",
+        "fertilidad": "23",
+        "fish": ""
+    },
+    {
+        "id": "304",
+        "q": "3",
+        "r": "4",
+        "nombre": "Pradera Fr\u00eda",
+        "tipo": "earth",
+        "fertilidad": "2",
+        "fish": ""
+    },
+    {
+        "id": "305",
+        "q": "3",
+        "r": "5",
+        "nombre": "Llanura Sagrada",
+        "tipo": "earth",
+        "fertilidad": "5",
+        "fish": ""
+    },
+    {
+        "id": "306",
+        "q": "3",
+        "r": "6",
+        "nombre": "Selva Azul",
+        "tipo": "earth",
+        "fertilidad": "16",
+        "fish": ""
+    },
+    {
+        "id": "400",
+        "q": "4",
+        "r": "0",
+        "nombre": "Aldea C\u00e1lida",
+        "tipo": "earth",
+        "fertilidad": "28",
+        "fish": ""
+    },
+    {
+        "id": "401",
+        "q": "4",
+        "r": "1",
+        "nombre": "Villa Fr\u00eda",
+        "tipo": "earth",
+        "fertilidad": "26",
+        "fish": ""
+    },
+    {
+        "id": "402",
+        "q": "4",
+        "r": "2",
+        "nombre": "Pradera Dorada",
+        "tipo": "earth",
+        "fertilidad": "6",
+        "fish": ""
+    },
+    {
+        "id": "403",
+        "q": "4",
+        "r": "3",
+        "nombre": "Agua Silenciosa",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "6"
+    },
+    {
+        "id": "404",
+        "q": "4",
+        "r": "4",
+        "nombre": "Pradera Frondosa",
+        "tipo": "earth",
+        "fertilidad": "12",
+        "fish": ""
+    },
+    {
+        "id": "405",
+        "q": "4",
+        "r": "5",
+        "nombre": "Villa Ocre",
+        "tipo": "earth",
+        "fertilidad": "19",
+        "fish": ""
+    },
+    {
+        "id": "406",
+        "q": "4",
+        "r": "6",
+        "nombre": "Villa Turquesa",
+        "tipo": "earth",
+        "fertilidad": "17",
+        "fish": ""
+    },
+    {
+        "id": "500",
+        "q": "5",
+        "r": "0",
+        "nombre": "Aldea Soleada",
+        "tipo": "earth",
+        "fertilidad": "26",
+        "fish": ""
+    },
+    {
+        "id": "501",
+        "q": "5",
+        "r": "1",
+        "nombre": "Villa M\u00edstica",
+        "tipo": "earth",
+        "fertilidad": "3",
+        "fish": ""
+    },
+    {
+        "id": "502",
+        "q": "5",
+        "r": "2",
+        "nombre": "Aldea Tempestuosa",
+        "tipo": "earth",
+        "fertilidad": "20",
+        "fish": ""
+    },
+    {
+        "id": "503",
+        "q": "5",
+        "r": "3",
+        "nombre": "Cascada Verde",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "5"
+    },
+    {
+        "id": "504",
+        "q": "5",
+        "r": "4",
+        "nombre": "Llanura Dorada",
+        "tipo": "earth",
+        "fertilidad": "22",
+        "fish": ""
+    },
+    {
+        "id": "505",
+        "q": "5",
+        "r": "5",
+        "nombre": "Cuenca Azul",
+        "tipo": "earth",
+        "fertilidad": "21",
+        "fish": ""
+    },
+    {
+        "id": "506",
+        "q": "5",
+        "r": "6",
+        "nombre": "Cuenca F\u00e9rtil",
+        "tipo": "earth",
+        "fertilidad": "1",
+        "fish": ""
+    },
+    {
+        "id": "600",
+        "q": "6",
+        "r": "0",
+        "nombre": "Aldea Azul",
+        "tipo": "earth",
+        "fertilidad": "2",
+        "fish": ""
+    },
+    {
+        "id": "601",
+        "q": "6",
+        "r": "1",
+        "nombre": "Llanura M\u00edstica",
+        "tipo": "earth",
+        "fertilidad": "30",
+        "fish": ""
+    },
+    {
+        "id": "602",
+        "q": "6",
+        "r": "2",
+        "nombre": "Selva Verde",
+        "tipo": "earth",
+        "fertilidad": "15",
+        "fish": ""
+    },
+    {
+        "id": "603",
+        "q": "6",
+        "r": "3",
+        "nombre": "Colina Escarlata",
+        "tipo": "earth",
+        "fertilidad": "22",
+        "fish": ""
+    },
+    {
+        "id": "604",
+        "q": "6",
+        "r": "4",
+        "nombre": "Laguna Esmeralda",
+        "tipo": "lago",
+        "fertilidad": "",
+        "fish": "5"
+    },
+    {
+        "id": "605",
+        "q": "6",
+        "r": "5",
+        "nombre": "Llanura Brumosa",
+        "tipo": "earth",
+        "fertilidad": "23",
+        "fish": ""
+    },
+    {
+        "id": "606",
+        "q": "6",
+        "r": "6",
+        "nombre": "Villa Brumosa",
+        "tipo": "earth",
+        "fertilidad": "29",
+        "fish": ""
+    },
+    {
+        "id": "700",
+        "q": "7",
+        "r": "0",
+        "nombre": "Cuenca Azul",
+        "tipo": "earth",
+        "fertilidad": "15",
+        "fish": ""
+    },
+    {
+        "id": "701",
+        "q": "7",
+        "r": "1",
+        "nombre": "Pe\u00f1\u00f3n Imponente",
+        "tipo": "monta\u00f1a",
+        "fertilidad": "",
+        "fish": ""
+    },
+    {
+        "id": "702",
+        "q": "7",
+        "r": "2",
+        "nombre": "Aldea Verde",
+        "tipo": "earth",
+        "fertilidad": "29",
+        "fish": ""
+    },
+    {
+        "id": "703",
+        "q": "7",
+        "r": "3",
+        "nombre": "Cuenca Primaveral",
+        "tipo": "earth",
+        "fertilidad": "25",
+        "fish": ""
+    },
+    {
+        "id": "704",
+        "q": "7",
+        "r": "4",
+        "nombre": "Altiplano Sustentoso",
+        "tipo": "monta\u00f1a",
+        "fertilidad": "",
+        "fish": ""
+    },
+    {
+        "id": "705",
+        "q": "7",
+        "r": "5",
+        "nombre": "Villa Escarlata",
+        "tipo": "earth",
+        "fertilidad": "0",
+        "fish": ""
+    },
+    {
+        "id": "706",
+        "q": "7",
+        "r": "6",
+        "nombre": "Villa Verde",
+        "tipo": "earth",
+        "fertilidad": "17",
+        "fish": ""
+    },
+    {
+        "id": "801",
+        "q": "8",
+        "r": "1",
+        "nombre": "Cuenca Misteriosa",
+        "tipo": "earth",
+        "fertilidad": "8",
+        "fish": ""
+    },
+    {
+        "id": "802",
+        "q": "8",
+        "r": "2",
+        "nombre": "Colina Soleada",
+        "tipo": "earth",
+        "fertilidad": "12",
+        "fish": ""
+    },
+    {
+        "id": "803",
+        "q": "8",
+        "r": "3",
+        "nombre": "Llanura Frondosa",
+        "tipo": "earth",
+        "fertilidad": "1",
+        "fish": ""
+    },
+    {
+        "id": "804",
+        "q": "8",
+        "r": "4",
+        "nombre": "Colina Plateada",
+        "tipo": "earth",
+        "fertilidad": "15",
+        "fish": ""
+    },
+    {
+        "id": "805",
+        "q": "8",
+        "r": "5",
+        "nombre": "Colina F\u00e9rtil",
+        "tipo": "earth",
+        "fertilidad": "9",
+        "fish": ""
+    },
+    {
+        "id": "902",
+        "q": "9",
+        "r": "2",
+        "nombre": "Llanura Soleada",
+        "tipo": "earth",
+        "fertilidad": "3",
+        "fish": ""
+    },
+    {
+        "id": "903",
+        "q": "9",
+        "r": "3",
+        "nombre": "Colina Primaveral",
+        "tipo": "earth",
+        "fertilidad": "23",
+        "fish": ""
+    },
+    {
+        "id": "904",
+        "q": "9",
+        "r": "4",
+        "nombre": "Llanura Ocre",
+        "tipo": "earth",
+        "fertilidad": "13",
+        "fish": ""
+    }
+]

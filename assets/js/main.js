@@ -76,6 +76,14 @@ let isDragging = false, startX, startY;
 let currentX = 0, currentY = 0, targetX = 0, targetY = 0;
 let scale = 1, minScale = 0.5, maxScale = 3, smoothFactor = 0.1;
 
+const savedScale = parseFloat(localStorage.getItem('mapScale'));
+const savedX = parseFloat(localStorage.getItem('mapTargetX'));
+const savedY = parseFloat(localStorage.getItem('mapTargetY'));
+
+if (!isNaN(savedScale)) scale = savedScale;
+if (!isNaN(savedX)) targetX = savedX;
+if (!isNaN(savedY)) targetY = savedY;
+
 function applyTransform() {
     container.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) scale(${scale})`;
 }
@@ -91,7 +99,13 @@ function animate() {
     }
 }
 
-window.guardarEstadoMapa = function () {
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem('mapScale', scale);
+    localStorage.setItem('mapTargetX', targetX);
+    localStorage.setItem('mapTargetY', targetY);
+});
+
+function guardarEstadoMapa() {
     const hexData = [];
 
     document.querySelectorAll('.hex').forEach(hex => {
@@ -125,8 +139,7 @@ window.guardarEstadoMapa = function () {
         console.error('Error en la petición:', err);
         alert('Error al guardar');
     });
-};
-
+}
 
 container.addEventListener('wheel', e => {
     e.preventDefault();

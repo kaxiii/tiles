@@ -10,10 +10,16 @@
 </head>
 <body>
 
-    <div style="position: fixed; top: 0; left: 0; right: 0; background: #333; color: white; padding: 10px; z-index: 2000;">
-        <button onclick="guardarEstadoMapa()" style="padding: 5px 10px; margin-right: 10px;">💾 Guardar partida</button>
-        <button onclick="document.getElementById('settings-panel').style.display = 'block'" style="padding: 5px 10px; margin-right: 10px;">⚙ Configurar y regenerar</button>
-        <span style="font-weight: bold;">Mapa Hexagonal</span>
+    <!-- BARRA SUPERIOR -->
+    <div style="position: fixed; top: 0; left: 0; right: 0; background: #333; color: white; padding: 10px; z-index: 2000; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <button onclick="guardarEstadoMapa()" style="padding: 5px 10px; margin-right: 10px;">💾 Guardar partida</button>
+            <button onclick="document.getElementById('settings-panel').style.display = 'block'" style="padding: 5px 10px; margin-right: 10px;">⚙ Nueva Partida</button>
+            <span style="font-weight: bold;">Mapa Hexagonal</span>
+        </div>
+        <button onclick="siguiente_turno()" title="Siguiente turno" style="padding: 5px 10px; font-size: 18px; background: #2ecc71; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            ➤
+        </button>
     </div>
 
     <?php include 'components/map_generator_panel.php'; ?>
@@ -33,7 +39,7 @@
         });
     </script>
 
-    <div class="container" id="map">
+    <canvas id="hexCanvas" width="1000" height="700">
         <?php
 
         $cols = isset($_GET['cols']) ? intval($_GET['cols']) : 10;
@@ -98,6 +104,25 @@
             $sus = $tipo['sustantivos'];
         
             return $sus[array_rand($sus)] . ' ' . $adj[array_rand($adj)];
+        }
+
+        function calcularFish($q, $r, $terrenos) {
+            $vecinos = [
+                [$q, $r - 1], [$q, $r + 1],
+                [$q - 1, $r],
+                [$q + 1, $r],
+                [$q - 1, $r + ($q % 2 === 0 ? -1 : 0)],
+                [$q + 1, $r + ($q % 2 === 0 ? -1 : 0)]
+            ];
+
+            $aguaAlrededor = 0;
+            foreach ($vecinos as [$vq, $vr]) {
+                $vid = $vq * 100 + $vr;
+                if (isset($terrenos[$vid]) && $terrenos[$vid] === 'lago') {
+                    $aguaAlrededor++;
+                }
+            }
+            return rand(1, 3) + $aguaAlrededor * rand(1, 2);
         }
 
         $archivoNombres = 'hex_names.json';
@@ -208,9 +233,33 @@
             }
         }
         ?>
-    </div>
+    </canvas>
 
     <?php include 'components/info_panel.php'; ?>
+
+    <div id="save-modal" style="display:none; position:fixed; top:20%; left:50%; transform:translateX(-50%); background:white; border:1px solid #ccc; padding:20px; z-index:3000; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.3); width:300px;">
+        <h3>Guardar partida</h3>
+        <label>Nombre:</label>
+        <input type="text" id="nombre-partida" placeholder="Mi partida" style="width:100%; margin-bottom:10px;" />
+        
+        <label>Slot:</label>
+        <select id="slot-partida" style="width:100%; margin-bottom:10px;">
+            <option value="0">Slot 0</option>
+            <option value="1">Slot 1</option>
+            <option value="2">Slot 2</option>
+            <option value="3">Slot 3</option>
+            <option value="4">Slot 4</option>
+            <option value="5">Slot 5</option>
+            <option value="6">Slot 6</option>
+            <option value="7">Slot 7</option>
+            <option value="8">Slot 8</option>
+            <option value="9">Slot 9</option>
+        </select>
+
+        <button onclick="confirmarGuardado()" style="width:100%; background:#3498db; color:white; padding:10px; border:none; border-radius:5px;">Guardar</button>
+        <button onclick="cerrarModalGuardado()" style="margin-top:10px; width:100%; background:#ccc; padding:8px; border:none; border-radius:5px;">Cancelar</button>
+    </div>
+
 
     <script src="assets/js/main.js"></script>
 </body>
